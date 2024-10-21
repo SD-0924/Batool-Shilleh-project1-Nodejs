@@ -13,7 +13,7 @@ const countWords = (filePath) => {
                 return resolve({filePath, wordCount: 0})
             }
 
-            const wordCount = data.split(/\s+/).filter(word => word).length
+            const wordCount = data.split(/\s+/).filter(word => word && !/\d/.test(word)).length;
             resolve({filePath, wordCount})
         })
     })
